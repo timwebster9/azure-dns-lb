@@ -34,4 +34,5 @@ resource "azurerm_lb_rule" "dns_rule" {
   backend_port            = "53"
   backend_address_pool_id = azurerm_lb_backend_address_pool.dnspool.id
   probe_id                = azurerm_lb_probe.dns.id
+  frontend_ip_configuration_name = "ip-config"
 }
