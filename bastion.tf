@@ -37,10 +37,6 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
     storage_account_type = "Standard_LRS"
   }
 
-  # This should be allowed
-  #source_image_id = var.allowed_source_image_id
-
-This should be disallowed because it's not using an allowed image gallery source image
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
