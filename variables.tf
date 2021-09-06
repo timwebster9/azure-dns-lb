@@ -17,3 +17,7 @@ variable "dns_subnet_cidr" {
 variable "dns_lb_ip_address" {
   type = string
 }
+
+variable "vm_image_id" {
+  type = string
+}

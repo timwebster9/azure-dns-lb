@@ -31,6 +31,5 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
     storage_account_type = "Standard_LRS"
   }
 
-  source_image_id = "/subscriptions/2ca65474-3b7b-40f2-b242-0d2fba4bde6e/resourceGroups/mgmt-rg/providers/Microsoft.Compute/galleries/policytestsig/images/ubuntu-bind9/versions/0.0.1"
-
+  source_image_id = var.vm_image_id
 }
