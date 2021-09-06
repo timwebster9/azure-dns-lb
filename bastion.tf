@@ -21,8 +21,8 @@ resource "azurerm_network_interface" "linux_vm" {
 
 resource "azurerm_linux_virtual_machine" "linux_vm" {
   name                = "linux-vm"
-  resource_group_name = azurerm_resource_group.policy.name
-  location            = azurerm_resource_group.policy.location
+  resource_group_name = azurerm_resource_group.dns_rg.name
+  location            = azurerm_resource_group.dns_rg.location
   size                = var.vm_size
   disable_password_authentication = false
   admin_username      = "azureuser"
