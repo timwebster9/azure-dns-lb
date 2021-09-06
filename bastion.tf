@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
   name                = "linux-vm"
   resource_group_name = azurerm_resource_group.dns_rg.name
   location            = azurerm_resource_group.dns_rg.location
-  size                = var.vm_size
+  size                = "Standard_D2s_v3"
   disable_password_authentication = false
   admin_username      = "azureuser"
   admin_password      = "sadf8sa7asfas!"
