@@ -28,8 +28,20 @@ resource "azurerm_lb_probe" "dns" {
 resource "azurerm_lb_rule" "dns_rule" {
   resource_group_name     = azurerm_resource_group.dns_rg.name
   loadbalancer_id         = azurerm_lb.dns_lb.id
-  name                    = "dns"
+  name                    = "dns-udp"
   protocol                = "Udp"
+  frontend_port           = "53"
+  backend_port            = "53"
+  backend_address_pool_id = azurerm_lb_backend_address_pool.dnspool.id
+  probe_id                = azurerm_lb_probe.dns.id
+  frontend_ip_configuration_name = "ip-config"
+}
+
+resource "azurerm_lb_rule" "dns_rule_tcp" {
+  resource_group_name     = azurerm_resource_group.dns_rg.name
+  loadbalancer_id         = azurerm_lb.dns_lb.id
+  name                    = "dns-tcp"
+  protocol                = "Tcp"
   frontend_port           = "53"
   backend_port            = "53"
   backend_address_pool_id = azurerm_lb_backend_address_pool.dnspool.id
