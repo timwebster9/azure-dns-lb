@@ -19,7 +19,7 @@ resource "azurerm_lb_backend_address_pool" "dnspool" {
 }
 
 resource "azurerm_lb_probe" "dns" {
-  resource_group_name = azurerm_resource_group.dns_sn.name
+  resource_group_name = azurerm_resource_group.dns_rg.name
   loadbalancer_id     = azurerm_lb.dns_lb.id
   name                = "dns-running-probe"
   port                = "53"
