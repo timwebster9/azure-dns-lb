@@ -5,6 +5,7 @@ resource "azurerm_lb" "dns_lb" {
   sku                 = "Standard"
 
   frontend_ip_configuration {
+    name                          = "ip-config"
     subnet_id                     = azurerm_subnet.dns_sn.id
     private_ip_address            = var.dns_lb_ip_address
     private_ip_address_allocation = "Static"
