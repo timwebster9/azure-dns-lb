@@ -23,6 +23,8 @@ resource "azurerm_lb_probe" "dns" {
   loadbalancer_id     = azurerm_lb.dns_lb.id
   name                = "dns-running-probe"
   port                = "53"
+  interval_in_seconds = "5"
+  number_of_probes    = "2"
 }
 
 resource "azurerm_lb_rule" "dns_rule" {
