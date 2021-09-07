@@ -18,7 +18,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
     pause_time_between_batches = "PT1M"
   }
 
-  #health_probe_id = azurerm_lb_probe.dns.id
+  health_probe_id = azurerm_lb_probe.dns.id
 
   depends_on = [
       azurerm_lb_rule.dns_rule
