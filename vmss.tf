@@ -5,7 +5,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
   sku                 = "Standard_D2s_v3"
   instances           = 2
   upgrade_mode        = "Rolling"
-  zone_balance        = "True"
+  zone_balance        = true
   disable_password_authentication = false
   admin_username      = "azureuser"
   admin_password      = "sadf8sa7asfas!"
