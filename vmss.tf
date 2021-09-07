@@ -12,9 +12,9 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
   admin_password      = "sadf8sa7asfas!"
 
   rolling_upgrade_policy {
-    max_batch_instance_percent     = "50"
-    max_unhealthy_instance_percent = "50"
-    max_unhealthy_upgraded_instance_percent = "50"
+    max_batch_instance_percent     = "20"
+    max_unhealthy_instance_percent = "20"
+    max_unhealthy_upgraded_instance_percent = "20"
     pause_time_between_batches = "PT1M"
   }
 
