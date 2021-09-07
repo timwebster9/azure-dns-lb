@@ -5,10 +5,18 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
   sku                 = "Standard_D2s_v3"
   instances           = 2
   upgrade_mode        = "Rolling"
+  zones               = ["1", "2", "3"]
   zone_balance        = true
   disable_password_authentication = false
   admin_username      = "azureuser"
   admin_password      = "sadf8sa7asfas!"
+
+  rolling_upgrade_policy {
+    max_batch_instance_percent     = "50"
+    max_unhealthy_instance_percent = "50"
+    max_unhealthy_upgraded_instance_percent = "50"
+    pause_time_between_batches = "PT1M"
+  }
 
   #health_probe_id = azurerm_lb_probe.dns.id
 
