@@ -4,6 +4,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "linux_vmss" {
   location            = azurerm_resource_group.dns_rg.location
   sku                 = "Standard_D2s_v3"
   instances           = 2
+  upgrade_mode        = "Rolling"
+  zone_balance        = "True"
   disable_password_authentication = false
   admin_username      = "azureuser"
   admin_password      = "sadf8sa7asfas!"
